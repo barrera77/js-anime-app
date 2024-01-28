@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Chan</title>
+    <link href="./output.css" rel="stylesheet" />
+    <!-- <script src="/js/index.js" defer></script> -->
+
+    <style>
+      #card {
+        width: 200px;
+        height: 270px;
+        border: 0;
+        border-radius: 6px;
+        margin: 10px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-4xl text-pink-500"></div>
+    <div id="container" class="text-[100%] m-auto">
+      <nav id="navbar" class="flex justify-between p-2 items-center text-xl">
+        <div id="logo-container" class="m-5 h-[90px] w-[120px] overflow-hidden">
+          <a href="">
+            <img
+              src="/assets/images/logo5.png"
+              alt="left-logo"
+              width="366"
+              height="217"
+              class="object-cover"
+          /></a>
+        </div>
+        <div id="nav-links" class="">
+          <ul class="flex list-none items-center">
+            <li class="mr-[30px]">Genre</li>
+            <li class="mr-[30px]">Types</li>
+            <li class="mr-[30px]">Updated</li>
+            <li class="mr-[30px]">Ongoing</li>
+            <li class="mr-[30px]">Upcoming</li>
+            <li class="mr-[30px]">Scheuled</li>
+          </ul>
+        </div>
+        <div class="">
+          <img
+            class="w-[2.5rem] h-[2.5rem]"
+            src="/assets/github.svg"
+            alt="Right Logo"
+          />Sign In
+        </div>
+      </nav>
+      <div id="grid" class="flex flex-wrap"></div>
+    </div>
+  </body>
+</html>
