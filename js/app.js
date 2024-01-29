@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anime Chan</title>
-    <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link href="./output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/styles.css" />
+import "../css/styles.css";
 
-    <script src="/js/index.js" defer></script>
-  </head>
-  <body class="bg-white dark:bg-black text-black dark:text-white">
+export default function App() {
+  return (
     <div id="container" class="text-[100%] m-auto max-w:[1370px] font">
       <nav
         id="navbar"
@@ -31,24 +18,25 @@
               width="366"
               height="217"
               class="object-cover"
-          /></a>
+            />
+          </a>
         </div>
         <div id="nav-links" class="small-caps font-semibold text-[23px]">
           <ul class="flex list-none items-center">
-            <li id="link"><a href="">Genre</a></li>
-            <li id="link"><a href="">Types</a></li>
-            <li id="link"><a href="">Updated</a></li>
-            <li id="link"><a href="">Ongoing</a></li>
-            <li id="link"><a href="">Upcoming</a></li>
-            <li id="link"><a href="">Scheduled</a></li>
+            <li class="mr-[30px]">Genre</li>
+            <li class="mr-[30px]">Types</li>
+            <li class="mr-[30px]">Updated</li>
+            <li class="mr-[30px]">Ongoing</li>
+            <li class="mr-[30px]">Upcoming</li>
+            <li class="mr-[30px]">Scheduled</li>
           </ul>
         </div>
         <div class="flex flex-wrap items-center small-caps font-bold">
           <div id="switch" class="mr-2">
-            <input id="dark-mode-switch" type="checkbox" onchange="" />
+            <input id="dark-mode-switch" type="checkbox" />
             <span id="slider"></span>
           </div>
-          <span for="switch">Dark Mode</span>
+          <label for="switch">Dark Mode</label>
         </div>
         <div class="flex flex-wrap items-center small-caps">
           <img
@@ -56,24 +44,40 @@
             src="/assets/avatar.png"
             alt="Right Logo"
           />
-          <a href="" class="ml-2">Sign In</a>
+          <a href="" class="ml-2">
+            Sign In
+          </a>
         </div>
       </nav>
 
       <div id="banner" class="max-w-[1370px] mt-[1rem] m-auto">
-        <ul id="slideshow" class="list-none grayscale-[100%]">
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
+        <ul class="slideshow" class="list-none">
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
+          <li>
+            <span></span>
+          </li>
         </ul>
       </div>
 
       <div id="anime-grid" class="max-w-[1370px] m-auto mt-[1rem]">
-        <!--  <div id="card">
+        <div id="card">
           <div id="series-type"></div>
           <figure class="items-center">
             <img
@@ -191,8 +195,8 @@
               alt="Anime Poster"
             />
           </figure>
-        </div> -->
+        </div>
       </div>
     </div>
-  </body>
-</html>
+  );
+}
