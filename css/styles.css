@@ -128,6 +128,7 @@
 }
 #link:hover {
   text-decoration: underline;
+  color: rgb(41, 171, 226, 255);
 }
 
 #anime-grid {

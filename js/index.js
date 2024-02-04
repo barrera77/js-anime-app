@@ -1,6 +1,7 @@
 const url = "https://api.jikan.moe/v4";
 const animeGrid = document.querySelector("#anime-grid");
 const darkModeSwitch = document.querySelector("#dark-mode-switch");
+const playButton = document.querySelector("#play-button");
 
 darkModeSwitch.addEventListener("change", () => {
   document.querySelector("html").classList.toggle("dark");
@@ -56,3 +57,31 @@ function getAnimeImages() {
     });
 }
 getAnimeImages();
+
+//Pagination with InfinteScroll
+/* let elem = document.querySelector("#anime-grid");
+let infScroll = new InfiniteScroll(elem, {
+  //options
+  path: url + "/top/anime?page={}",
+  append: ".post",
+  history: false,
+});
+
+console.log(url + "/top/anime?genre=14/current_page=2"); */
+
+//Element argument can be a selector string
+//For an individual element
+/* let infScroll = new InfiniteScroll(animeGrid, {
+  //options
+}); */
+
+function getPages() {
+  fetch(url + "/top/anime?page=3")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.data);
+    });
+}
+getPages();
