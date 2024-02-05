@@ -1,7 +1,10 @@
+const avatarUrl = "https://api.dicebear.com/7.x/lorelei/svg?seed=Felix";
 const url = "https://api.jikan.moe/v4";
 const animeGrid = document.querySelector("#anime-grid");
 const darkModeSwitch = document.querySelector("#dark-mode-switch");
 const playButton = document.querySelector("#play-button");
+const cardImage = document.querySelector("#card-image");
+const animeCard = document.querySelector("#card");
 
 darkModeSwitch.addEventListener("change", () => {
   document.querySelector("html").classList.toggle("dark");
@@ -75,7 +78,7 @@ console.log(url + "/top/anime?genre=14/current_page=2"); */
   //options
 }); */
 
-function getPages() {
+/* function getPages() {
   fetch(url + "/top/anime?page=3")
     .then(function (response) {
       return response.json();
@@ -84,4 +87,22 @@ function getPages() {
       console.log(data.data);
     });
 }
-getPages();
+getPages(); */
+
+//Display cards with infinte scroll
+const viewportHeight = document.documentElement.clientHeight;
+
+window.addEventListener("scroll", function (e) {
+  //Checked if scrolled position is greater or equal to the page height
+  const scrolledY = window.scrollY;
+  const pageHeight = document.documentElement.scrollHeight;
+  const scrolledToEnd = scrolledY + viewportHeight >= pageHeight - 30;
+
+  console.log(scrolledY);
+  console.log(scrolledToEnd);
+
+  //if yes append a group of cards group to the DOM
+  if (scrolledToEnd) {
+    getAnimeImages();
+  }
+});
