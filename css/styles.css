@@ -19,7 +19,7 @@
 #slideshow,
 #slideshow:after {
   height: 350px;
-  max-width: 1370px;
+  max-width: 1280px;
   margin: auto;
   position: relative;
   overflow: hidden;
@@ -121,6 +121,7 @@
 
 #container {
   font-family: "Poppins", sans-serif;
+  max-width: 1280px;
 }
 
 #link {
@@ -132,7 +133,7 @@
 }
 
 #anime-grid {
-  max-width: 1370px;
+  max-width: 1280px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -145,13 +146,14 @@
   border: 0;
   border-radius: 6px;
   margin-top: 1.5rem;
-
   overflow: hidden;
 }
+
 #card figure {
   height: 280px;
   position: relative;
 }
+
 #card figcaption {
   text-align: center;
   font-size: 15px;
@@ -264,4 +266,18 @@
 
 #slider:before {
   border-radius: 50%;
+}
+
+#paginator-btn {
+  margin-right: 10px;
+}
+
+#paginator {
+  display: flex;
+  gap: 1rem;
+}
+
+#page-number {
+  display: flex;
+  gap: 1rem;
 }
