@@ -14,10 +14,10 @@
     <script type="module" src="/js/index.js" defer></script>
   </head>
   <body class="bg-white dark:bg-black text-black dark:text-white">
-    <div id="container" class="text-[100%] m-auto max-w:[1370px] font">
+    <div id="container" class="text-[100%] m-auto max-w:[1370px]">
       <nav
         id="navbar"
-        class="flex justify-between max-w-[1280px] m-auto p-2 items-center text-xl"
+        class="flex justify-between max-w-[1280px] m-auto p-2 items-center small-caps"
       >
         <div
           id="logo-container"
@@ -32,7 +32,7 @@
               class="object-cover"
           /></a>
         </div>
-        <div id="nav-links" class="small-caps font-semibold text-[23px]">
+        <div id="nav-links" class="small-caps font-semibold">
           <ul class="flex list-none items-center">
             <li id="link"><a href="">Genre</a></li>
             <li id="link"><a href="">Types</a></li>
@@ -51,6 +51,7 @@
         </div>
         <div class="flex flex-wrap items-center small-caps">
           <img
+            id="login-logo"
             class="w-[2.5rem] h-[2.5rem]"
             src="/assets/avatar.png"
             alt="Right Logo"
@@ -70,7 +71,7 @@
           <li><span></span></li>
         </ul>
       </div>
-      <div class="flex justify-between mt-[1rem]">
+      <div id="middle-container" class="small-caps">
         <ul class="list-none flex items-center">
           <li id="link">All</li>
           <li id="link">Sub</li>
@@ -78,9 +79,27 @@
           <li id="link">Trending</li>
         </ul>
 
+        <div id="search-container" class="flex flex-col relative">
+          <input
+            id="search-input"
+            name="searchInput"
+            type="text"
+            placeholder="Anime Search"
+            class="small-caps px-3 block w-full rounded-md border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+          <button id="search-btn" class="absolute top-8 right-4">
+            <img
+              id="search-icon"
+              src="/assets/search-icon.png"
+              alt="search icon"
+            />
+          </button>
+        </div>
+
         <!-- Pagination -->
         <div id="paginator">
           <button
+            id="previous-page-number"
             type="button"
             class="min-h-[38px] min-w-[38px] py-2 px-2.5 flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
           >
@@ -98,10 +117,11 @@
             >
               <path d="m15 18-6-6 6-6" />
             </svg>
-            <span aria-hidden="true" class="sr-only">Previous</span>
+            <span aria-hidden="true" class="small-caps sr-only">Previous</span>
           </button>
           <div id="page-number">
             <span
+              id="current-page-number"
               class="min-h-[38px] min-w-[38px] flex justify-center items-center border border-gray-200 text-gray-800 py-2 px-3 text-sm rounded-lg focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-white dark:focus:bg-white/10"
               >1</span
             >
@@ -110,15 +130,17 @@
               >of</span
             >
             <span
+              id="last-page-number"
               class="min-h-[38px] flex justify-center items-center text-gray-500 py-2 px-1.5 text-sm dark:text-gray-500"
               >3</span
             >
           </div>
           <button
+            id="next-page"
             type="button"
             class="min-h-[38px] min-w-[38px] py-2 px-2.5 flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
           >
-            <span aria-hidden="true" class="sr-only">Next</span>
+            <span aria-hidden="true" class="small-caps sr-only">Next</span>
             <svg
               class="flex-shrink-0 w-3.5 h-3.5"
               xmlns="http://www.w3.org/2000/svg"
