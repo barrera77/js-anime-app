@@ -14,7 +14,7 @@
     <script type="module" src="/js/index.js" defer></script>
   </head>
   <body class="bg-white dark:bg-black text-black dark:text-white">
-    <div id="container" class="text-[100%] m-auto max-w:[1370px]">
+    <div id="container" class="text-[100%] m-auto max-w:[1370px] p-2">
       <nav
         id="navbar"
         class="flex justify-between max-w-[1280px] m-auto p-2 items-center small-caps"
@@ -71,15 +71,9 @@
           <li><span></span></li>
         </ul>
       </div>
-      <div id="middle-container" class="small-caps">
-        <ul class="list-none flex items-center">
-          <li id="link">All</li>
-          <li id="link">Sub</li>
-          <li id="link">Dub</li>
-          <li id="link">Trending</li>
-        </ul>
 
-        <div id="search-container" class="flex flex-col relative">
+      <div id="search-container" class="">
+        <div id="search">
           <input
             id="search-input"
             name="searchInput"
@@ -95,9 +89,20 @@
             />
           </button>
         </div>
+      </div>
+
+      <div id="middle-container" class="small-caps">
+        <div class="col-span-3">
+          <ul class="list-none flex items-center">
+            <li id="link">All</li>
+            <li id="link">Sub</li>
+            <li id="link">Dub</li>
+            <li id="link">Trending</li>
+          </ul>
+        </div>
 
         <!-- Pagination -->
-        <div id="paginator">
+        <div id="paginator" class="">
           <button
             id="previous-page-number"
             type="button"
@@ -161,6 +166,11 @@
       </div>
 
       <div id="anime-grid" class="max-w-[100%] m-auto mt-[1rem]"></div>
+      <div class="container">
+        <div class="box-1">Col-1</div>
+        <div class="box-2">Col-2</div>
+        <div class="box-3">Col-3</div>
+      </div>
     </div>
   </body>
 </html>
