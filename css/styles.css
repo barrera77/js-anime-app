@@ -136,12 +136,12 @@
 
 #anime-grid {
   max-width: 1280px;
+  min-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
   justify-content: space-between;
 }
-
 #card {
   width: 200px;
   height: 350px;
@@ -302,8 +302,8 @@
   max-width: 50%;
   height: 2.5rem;
   display: flex;
+  flex-wrap: wrap;
   position: relative;
-  padding: 0;
 }
 #search-input {
   border-style: solid;
@@ -316,6 +316,7 @@
   height: 100%;
   padding-left: 2.5rem;
 }
+
 #search-icon {
   width: 1.5rem;
   position: absolute;
@@ -323,30 +324,43 @@
 
 #search-btn {
   padding: 0.5rem;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat center;
+  position: absolute;
+  z-index: 2;
 }
-
-.box-1 {
-  flex: 1;
-  background-color: red;
-}
-.box-2 {
-  flex: 2;
-  background-color: yellow;
-}
-.box-3 {
-  flex: 1;
-  background-color: blueviolet;
-}
-.container {
-  display: flex;
-}
-
-@media (max-width: 600px) {
+/* TODO Refactor @media queries */
+@media (min-width: 600px) {
   #search {
     margin: 0.5rem auto;
     max-width: 100%;
   }
   #search-container {
     flex-direction: column;
+  }
+}
+
+/* Responsive columns using media queries */
+@media screen and (min-width: 600px) {
+  #anime-grid {
+    display: flex;
+    /* TODO figure correct layout to close the gap between the 2 cards*/
+  }
+  #card {
+    width: 280px;
+    /* TODO figure height of cards */
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #card {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
