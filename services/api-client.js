@@ -21,5 +21,21 @@ class ApiClient {
       throw error;
     }
   }
+
+  //fetch anime data details by id
+  async getAnimeDataById(animeId) {
+    try {
+      const response = await fetch(`${this.url}/anime/${animeId}`);
+
+      if (!response.ok) {
+        throw new Error("Incorrect network response");
+      }
+
+      const animeDetails = await response.json();
+      return animeDetails;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 export default ApiClient;

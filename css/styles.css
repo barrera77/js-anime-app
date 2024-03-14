@@ -330,6 +330,12 @@
   position: absolute;
   z-index: 2;
 }
+
+#static-modal {
+  width: 1000px;
+  height: 560px;
+}
+
 /* TODO Refactor @media queries */
 @media (min-width: 600px) {
   #search {

@@ -28,11 +28,11 @@ darkModeSwitch.addEventListener("change", () => {
 
 //click event handler for playTrailer click
 async function handlePlayTrailerClick(event) {
-  const animeId = event.currentTarget.dataset.animeId;
-  const trailerInfo = await fetchAnimeTrailer(animeId);
+  const trailerUrl = event.currentTarget.dataset.trailerUrl;
 
-  if (trailerInfo) {
-    console.log("Trailer info: ", trailerInfo);
+  if (trailerUrl) {
+    console.log("Trailer URL: ", trailerUrl);
+    fetchAnimeTrailer(trailerUrl);
   } else {
     console.log("no trailer available for this anime");
   }
@@ -85,6 +85,7 @@ async function fetchAnimeData() {
       const animeTitle = anime.title;
       const seriesType = anime.type;
       const animeId = anime.mal_id;
+      const trailerUrl = anime.trailer.youtube_id;
 
       if (imgUrl) {
         //map images to a card
@@ -94,7 +95,7 @@ async function fetchAnimeData() {
           <div id="series-type">${seriesType}</div>         
           <img id="card-image" src="${imgUrl}" alt="Anime Poster">               
           <div id="play-button-container">
-           <button id="btn-play">
+           <button class="btn-play" data-trailer-url="${trailerUrl}">
               <img
                 id="play-button"
                 src="/assets/play-button-black.png"
@@ -107,6 +108,12 @@ async function fetchAnimeData() {
       </div>`;
       }
     });
+
+    //Create click event listener to play buttons
+    const playButtons = document.querySelectorAll(".btn-play");
+    playButtons.forEach((button) =>
+      button.addEventListener("click", handlePlayTrailerClick)
+    );
   } catch (error) {
     console.error("Error fetching anime data: ", error);
   }
