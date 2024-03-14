@@ -1,4 +1,6 @@
+import { fetchAnimeTrailer } from "../components/modal.js";
 import ApiClient from "../services/api-client.js";
+import("/components/modal.js");
 
 const url = "https://api.jikan.moe/v4/top/anime?bypopularity/pictures";
 const endpoint = "";
@@ -7,6 +9,9 @@ const darkModeSwitch = document.querySelector("#dark-mode-switch");
 const playButton = document.querySelector("#play-button");
 const currentPageNumber = document.querySelector("#current-page-number");
 const lastPageNumber = document.querySelector("#last-page-number");
+
+const playTrailer = document.querySelector("#btn-play");
+//playTrailer.addEventListener("click", handlePlayTrailerClick);
 
 const nextPageNumber = document.querySelector("#next-page");
 nextPageNumber.addEventListener("click", onHandleNextPage);
@@ -20,6 +25,18 @@ darkModeSwitch.addEventListener("change", () => {
 
   document.querySelector("#login-logo").style.filter = "invert(100%)";
 });
+
+//click event handler for playTrailer click
+async function handlePlayTrailerClick(event) {
+  const animeId = event.currentTarget.dataset.animeId;
+  const trailerInfo = await fetchAnimeTrailer(animeId);
+
+  if (trailerInfo) {
+    console.log("Trailer info: ", trailerInfo);
+  } else {
+    console.log("no trailer available for this anime");
+  }
+}
 
 //Query the API for anime data
 const apiclient = new ApiClient("?bypopularity");
@@ -67,22 +84,23 @@ async function fetchAnimeData() {
       const imgUrl = anime.images.jpg.image_url;
       const animeTitle = anime.title;
       const seriesType = anime.type;
+      const animeId = anime.mal_id;
 
       if (imgUrl) {
         //map images to a card
         animeGrid.innerHTML += `
-      <div id="card">              
+      <div id="card-${animeId}" class="card">              
         <figure>    
           <div id="series-type">${seriesType}</div>         
           <img id="card-image" src="${imgUrl}" alt="Anime Poster">               
           <div id="play-button-container">
-           <a href="">
+           <button id="btn-play">
               <img
                 id="play-button"
                 src="/assets/play-button-black.png"
                 alt="play-button"
                 />
-            </a>
+            </button>
           </div>
         </figure>
         <figcaption>${animeTitle}</figcaption>

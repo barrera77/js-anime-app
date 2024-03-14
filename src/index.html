@@ -12,7 +12,9 @@
     <link href="./output.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
     <script type="module" src="/js/index.js" defer></script>
+    <script type="module" src="/js/data.js" defer></script>
   </head>
+
   <body class="bg-white dark:bg-black text-black dark:text-white">
     <div id="container" class="text-[100%] m-auto p-2">
       <nav
@@ -165,6 +167,16 @@
         class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
       ></div>
     </div>
-    <div></div>
+    <div class="border w-100 bg-purple">Black</div>
+
+    <!-- Main modal (based on Flowbite-TailwindCss Modal)-->
+    <div
+      id="static-modal"
+      data-modal-backdrop="static"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+    ></div>
+    <!-- end Modal -->
   </body>
 </html>
