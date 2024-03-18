@@ -10,16 +10,18 @@ async function handlePaginatorModule() {
   paginatorContainer.innerHTML = renderPaginatorComponent();
 
   //Get components
-
+  //<span> showing the last visible page counter
   const lastPageNumber = document.querySelector("#last-page-number");
+  //<span> showing the current page
+  const currentPageNumber = document.querySelector("#current-page-number");
 
-  const nextPageNumber = document.querySelector("#next-page");
+  //Button to move to the next page number counter
+  const nextPageNumber = document.querySelector("#next-page-number");
   nextPageNumber.addEventListener("click", onHandleNextPage);
 
+  //Button to move to the previous page number
   const previousPageNumber = document.querySelector("#previous-page-number");
   previousPageNumber.addEventListener("click", onHandlePreviousPage);
-
-  const currentPageNumber = document.querySelector("#current-page-number");
 
   //Query the API for anime data
   const apiclient = new ApiClient("?bypopularity");
@@ -27,15 +29,14 @@ async function handlePaginatorModule() {
     Number(currentPageNumber.textContent)
   );
 
-  //Create variables for the current page counters
-  let nextPage = animeList.pagination.current_page;
+  //Create variables for the page counters
+  let currentPage = animeList.pagination.current_page;
   let lastPage = animeList.pagination.last_visible_page;
 
   //Initialize counters on the paginator
+  currentPageNumber.textContent = currentPage;
   lastPageNumber.textContent = lastPage;
-  currentPageNumber.textContent = nextPage;
 
-  //TODO fix next page logic(lastpage not rendering proper actual number)
   //render next page
   async function onHandleNextPage(e) {
     e.preventDefault();
@@ -43,27 +44,25 @@ async function handlePaginatorModule() {
     const hasNextPage = animeList.pagination.has_next_page;
 
     if (hasNextPage) {
-      nextPage += 1;
-      console.log(nextPage);
-      currentPageNumber.textContent = nextPage;
-      lastPageNumber.textContent = lastPage -= 1;
+      currentPage += 1;
+      currentPageNumber.textContent = currentPage;
 
-      loadNextPage(nextPage);
+      loadNextPage(currentPage);
     }
   }
-  //TODO fix previous page logic(lastpage not rendering proper actual number)
+
   //render previous page
   async function onHandlePreviousPage(e) {
     e.preventDefault();
 
     const hasNextPage = animeList.pagination.has_next_page;
-    const currentPage = currentPageNumber.textContent;
 
     if (currentPage > 1) {
-      nextPage -= 1;
-      currentPage = nextPage;
-      lastPageNumber.textContent = lastPage -= 1;
-      loadNextPage(nextPage);
+      currentPage -= 1;
+
+      currentPageNumber.textContent = currentPage;
+
+      loadNextPage(currentPage);
     }
   }
 

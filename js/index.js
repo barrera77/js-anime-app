@@ -26,9 +26,11 @@ async function fetchInitialAnimeData() {
   try {
     const pageNumber = Number(currentPageNumber.textContent);
     const { data } = await apiclient.getAnimeData(pageNumber);
-    console.log(data);
 
-    handleAnimeGridModule(data);
+    const animeDataArray = [...data];
+    console.log("anime data array: ", animeDataArray);
+
+    handleAnimeGridModule(animeDataArray);
   } catch (error) {
     console.error("Error:", error);
   }
