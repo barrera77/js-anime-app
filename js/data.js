@@ -17,7 +17,7 @@ async function fetchAnimeData(page) {
 }
 
 // Usage example:
-const page = 1; // You can change the page number here
+/* const page = 2; // You can change the page number here
 fetchAnimeData(page)
   .then((animeData) => {
     if (animeData) {
@@ -26,4 +26,6 @@ fetchAnimeData(page)
       console.log("No anime data available.");
     }
   })
-  .catch((error) => console.error("Error:", error));
+  .catch((error) => console.error("Error:", error)); */
+
+export { fetchAnimeData };

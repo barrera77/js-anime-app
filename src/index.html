@@ -17,50 +17,8 @@
 
   <body class="bg-white dark:bg-black text-black dark:text-white">
     <div id="container" class="text-[100%] m-auto p-2">
-      <nav
-        id="navbar"
-        class="flex justify-between max-w-[1280px] m-auto p-2 items-center small-caps"
-      >
-        <div
-          id="logo-container"
-          class="m-5 h-[90px] w-[120px] overflow-hidden py-2"
-        >
-          <a href="">
-            <img
-              src="/assets/images/logo5.png"
-              alt="left-logo"
-              width="366"
-              height="217"
-              class="object-cover"
-          /></a>
-        </div>
-        <div id="nav-links" class="small-caps font-semibold">
-          <ul class="flex list-none items-center">
-            <li id="link"><a href="">Genre</a></li>
-            <li id="link"><a href="">Types</a></li>
-            <li id="link"><a href="">Updated</a></li>
-            <li id="link"><a href="">Ongoing</a></li>
-            <li id="link"><a href="">Upcoming</a></li>
-            <li id="link"><a href="">Scheduled</a></li>
-          </ul>
-        </div>
-        <div class="flex flex-wrap items-center small-caps font-bold">
-          <div id="switch" class="mr-2">
-            <input id="dark-mode-switch" type="checkbox" onchange="" />
-            <span id="slider"></span>
-          </div>
-          <span for="switch">Dark Mode</span>
-        </div>
-        <div class="flex flex-wrap items-center small-caps">
-          <img
-            id="login-logo"
-            class="w-[2.5rem] h-[2.5rem]"
-            src="/assets/avatar.png"
-            alt="Right Logo"
-          />
-          <a href="" class="ml-2">Sign In</a>
-        </div>
-      </nav>
+      <!-- render the navbar component here -->
+      <div id="navbar-container"></div>
 
       <div id="banner" class="max-w-[100%] mt-[1rem] m-auto">
         <ul id="slideshow" class="list-none grayscale-[100%]">
@@ -97,80 +55,18 @@
             <li id="link">Trending</li>
           </ul>
         </div>
-
-        <!-- Pagination -->
-        <div id="paginator" class="">
-          <button
-            id="previous-page-number"
-            type="button"
-            class="min-h-[38px] min-w-[38px] py-2 px-2.5 flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
-          >
-            <svg
-              class="flex-shrink-0 w-3.5 h-3.5"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-            <span aria-hidden="true" class="small-caps sr-only">Previous</span>
-          </button>
-          <div id="page-number">
-            <span
-              id="current-page-number"
-              class="min-h-[38px] min-w-[38px] flex justify-center items-center border border-gray-200 text-gray-800 py-2 px-3 text-sm rounded-lg focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:border-gray-700 dark:text-white dark:focus:bg-white/10"
-              >1</span
-            >
-            <span
-              class="min-h-[38px] flex justify-center items-center text-gray-500 py-2 px-1.5 text-sm dark:text-gray-500"
-              >of</span
-            >
-            <span
-              id="last-page-number"
-              class="min-h-[38px] flex justify-center items-center text-gray-500 py-2 px-1.5 text-sm dark:text-gray-500"
-              >3</span
-            >
-          </div>
-          <button
-            id="next-page"
-            type="button"
-            class="min-h-[38px] min-w-[38px] py-2 px-2.5 flex justify-center items-center gap-x-2 text-sm rounded-lg text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
-          >
-            <span aria-hidden="true" class="small-caps sr-only">Next</span>
-            <svg
-              class="flex-shrink-0 w-3.5 h-3.5"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
-        </div>
-        <!-- End Pagination -->
+        <!-- Pagination - render the paginator component here-->
+        <div id="paginator-container"></div>
       </div>
-
+      <!-- render anime cards here -->
       <div
-        id="anime-grid"
-        class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
-      ></div>
-    </div>
+      id="anime-grid"
+      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
+    ></div>
     <div class="border w-100 bg-purple">Black</div>
 
     <!-- Main modal (based on Flowbite-TailwindCss Modal)-->
-    <div
+   <!--  <div
       id="static-modal"
       data-modal-backdrop="static"
       tabindex="-1"
@@ -178,9 +74,9 @@
       class="fixex !top-7 left-0 right-0 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <div class="relative p-4 w-100 h-100">
-        <!-- Modal content -->
+       
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-          <!-- Modal header -->
+          
           <div
             class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
           >
@@ -210,7 +106,7 @@
               <span class="sr-only">Close modal</span>
             </button>
           </div>
-          <!-- Modal body -->
+          
           <div class="p-0">
             <iframe
               width="100%"
@@ -228,7 +124,7 @@
           ></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- end Modal -->
   </body>
 </html>
