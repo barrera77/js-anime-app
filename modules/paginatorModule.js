@@ -35,6 +35,7 @@ async function handlePaginatorModule() {
   lastPageNumber.textContent = lastPage;
   currentPageNumber.textContent = nextPage;
 
+  //TODO fix next page logic(lastpage not rendering proper actual number)
   //render next page
   async function onHandleNextPage(e) {
     e.preventDefault();
@@ -50,16 +51,19 @@ async function handlePaginatorModule() {
       loadNextPage(nextPage);
     }
   }
-
+  //TODO fix previous page logic(lastpage not rendering proper actual number)
   //render previous page
-  function onHandlePreviousPage(e) {
+  async function onHandlePreviousPage(e) {
     e.preventDefault();
 
-    if (nextPage > 1) {
+    const hasNextPage = animeList.pagination.has_next_page;
+    const currentPage = currentPageNumber.textContent;
+
+    if (currentPage > 1) {
       nextPage -= 1;
-      console.log(nextPage);
-      currentPageNumber.textContent = nextPage;
-      lastPageNumber.textContent = lastPage += 1;
+      currentPage = nextPage;
+      lastPageNumber.textContent = lastPage -= 1;
+      loadNextPage(nextPage);
     }
   }
 

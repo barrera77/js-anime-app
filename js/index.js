@@ -18,6 +18,7 @@ handleNavbarModule();
 
 //render paginator
 handlePaginatorModule();
+
 //Fetch the initial anime data and display it
 const currentPageNumber = document.querySelector("#current-page-number");
 

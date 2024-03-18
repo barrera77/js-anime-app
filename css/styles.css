@@ -294,8 +294,9 @@
 }
 
 #search-container {
-  width: 100%;
   margin: auto;
+  width: 100%;
+  position: relative;
 }
 #search {
   margin: -20px auto;
@@ -337,13 +338,10 @@
 }
 
 /* TODO Refactor @media queries */
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   #search {
     margin: 0.5rem auto;
     max-width: 100%;
-  }
-  #search-container {
-    flex-direction: column;
   }
 }
 
